@@ -1,0 +1,27 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cc.springmvc.dao.ItemsMapper">
+
+    <!--查询所有订单-->
+    <select id="selectAllItems" resultType="Items">
+        select * from items
+    </select>
+
+    <!--根据id查询订单-->
+    <select id="selectItemByPrimaryKey" parameterType="Integer" resultType="Items">
+        select * from items where id = #{id}
+    </select>
+
+    <!--更新订单信息-->
+    <update id="updateItem" parameterType="Items">
+        update items set
+        name= #{name},
+        price = #{price},
+        detail = #{detail},
+        pic = #{pic},
+        createtime = #{createtime}
+        where id = #{id}
+    </update>
+</mapper>
